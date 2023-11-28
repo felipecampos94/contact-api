@@ -25,7 +25,6 @@ jobs:
           cache: maven
 
       - name: Build Application JAR
-        working-directory: ./contact
         run: mvn clean package -DskipTests
 
       - name: Docker Compose Build
