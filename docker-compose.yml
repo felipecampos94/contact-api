@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  contact-pgsql:
+    image: postgres:15
+    restart: always
+    container_name: contact-pgsql
+    hostname: contact-pgsql
+    environment:
+      TZ: America/Sao_Paulo
+      POSTGRES_DB: contact
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    expose:
+      - 5432
+    networks:
+      - contact-network
+
+  contact-backend:
+    image: felipecampos94/contact-backend
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: contact-backend
+    environment:
+      TZ: America/Sao_Paulo
+      SPRING.DATASOURCE.URL: jdbc:postgresql://contact-pgsql:5432/contact
+      SPRING.DATASOURCE.USERNAME: postgres
+      SPRING.DATASOURCE.PASSWORD: postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      - contact-pgsql
+    networks:
+      - contact-network
+
+networks:
+  contact-network:
+    driver: bridge

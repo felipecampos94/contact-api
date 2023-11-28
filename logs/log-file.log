@@ -1,0 +1,41 @@
+2023-11-20T11:56:12.632-03:00  INFO 41996 --- [restartedMain] br.com.contact.api.ContactApplication    : Starting ContactApplication using Java 17.0.9 with PID 41996 (D:\Projetos Java Spring Boot\contact\target\classes started by Felipe in D:\Projetos Java Spring Boot\contact)
+2023-11-20T11:56:12.648-03:00  INFO 41996 --- [restartedMain] br.com.contact.api.ContactApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-11-20T11:56:12.821-03:00  INFO 41996 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-20T11:56:12.822-03:00  INFO 41996 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-20T11:56:16.370-03:00  INFO 41996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-11-20T11:56:16.507-03:00  INFO 41996 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 2 JPA repository interfaces.
+2023-11-20T11:56:17.917-03:00  INFO 41996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-11-20T11:56:17.939-03:00  INFO 41996 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-11-20T11:56:17.941-03:00  INFO 41996 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2023-11-20T11:56:18.088-03:00  INFO 41996 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-11-20T11:56:18.089-03:00  INFO 41996 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5262 ms
+2023-11-20T11:56:18.675-03:00  INFO 41996 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2023-11-20T11:56:18.675-03:00  INFO 41996 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2023-11-20T11:56:18.678-03:00  INFO 41996 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2023-11-20T11:56:18.774-03:00  INFO 41996 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-11-20T11:56:19.229-03:00  INFO 41996 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@43c78f4f
+2023-11-20T11:56:19.233-03:00  INFO 41996 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-11-20T11:56:19.282-03:00  INFO 41996 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/contact (PostgreSQL 11.21)
+2023-11-20T11:56:19.836-03:00  INFO 41996 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 9 migrations (execution time 00:00.481s)
+2023-11-20T11:56:19.862-03:00  INFO 41996 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 09
+2023-11-20T11:56:19.863-03:00  INFO 41996 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2023-11-20T11:56:20.114-03:00  INFO 41996 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-11-20T11:56:20.292-03:00  INFO 41996 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2023-11-20T11:56:20.298-03:00  INFO 41996 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-11-20T11:56:20.962-03:00  INFO 41996 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-11-20T11:56:21.080-03:00  WARN 41996 --- [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2023-11-20T11:56:23.159-03:00  INFO 41996 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-11-20T11:56:23.166-03:00  INFO 41996 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-11-20T11:56:24.043-03:00  INFO 41996 --- [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-11-20T11:56:24.937-03:00  WARN 41996 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-11-20T11:56:25.836-03:00  INFO 41996 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 15 endpoint(s) beneath base path '/actuator'
+2023-11-20T11:56:25.957-03:00  INFO 41996 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4fe80c50, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34bcb2f5, org.springframework.security.web.context.SecurityContextHolderFilter@3f808cd9, org.springframework.security.web.header.HeaderWriterFilter@3759a7ee, org.springframework.security.web.authentication.logout.LogoutFilter@10ecbf76, br.com.contact.api.config.security.jwt.JwtTokenFilter@381f0cf3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@61861e70, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@bdb0766, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@61634557, org.springframework.security.web.session.SessionManagementFilter@2a2285f9, org.springframework.security.web.access.ExceptionTranslationFilter@4569fd4, org.springframework.security.web.access.intercept.AuthorizationFilter@12cf165d]
+2023-11-20T11:56:26.688-03:00  INFO 41996 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-11-20T11:56:26.847-03:00  INFO 41996 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-20T11:56:26.879-03:00  INFO 41996 --- [restartedMain] br.com.contact.api.ContactApplication    : Started ContactApplication in 15.507 seconds (process running for 17.759)
+2023-11-20T11:56:27.581-03:00  INFO 41996 --- [RMI TCP Connection(4)-192.168.1.107] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-20T11:56:27.582-03:00  INFO 41996 --- [RMI TCP Connection(4)-192.168.1.107] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-11-20T11:56:27.588-03:00  INFO 41996 --- [RMI TCP Connection(4)-192.168.1.107] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2023-11-20T11:56:58.704-03:00  INFO 41996 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-11-20T11:56:58.712-03:00  INFO 41996 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-11-20T11:56:58.725-03:00  INFO 41996 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
