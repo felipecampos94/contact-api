@@ -1,10 +1,10 @@
 package br.com.contact.api.controller;
 
-import br.com.contact.api.entity.*;
 import br.com.contact.api.entity.model.request.UserRequest;
 import br.com.contact.api.entity.model.response.*;
 import br.com.contact.api.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -14,14 +14,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 class UserControllerTest {
     // Address
@@ -59,8 +58,6 @@ class UserControllerTest {
 
     private UserRequest userRequest;
     private UserResponse userResponse;
-    private User user;
-    private Optional<User> optionalUser;
 
     UserControllerTest() {
     }
@@ -68,13 +65,13 @@ class UserControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        this.startUser();
         this.startUserRequest();
         this.startUserResponse();
     }
 
     @Test
-    void findAll() {
+    @DisplayName("When the list of users is returned successfully")
+    void findAllUsersThenReturnSuccess() {
         when(this.userService.findAll()).thenReturn(List.of(userResponse));
         //when(modelMapperConfig.parseObject(any(), any())).thenReturn(userResponse);
         when(modelMapper.map(any(), any())).thenReturn(this.userResponse);
@@ -90,7 +87,8 @@ class UserControllerTest {
     }
 
     @Test
-    void findById() {
+    @DisplayName("When the search for id is returned successfully")
+    void findByIdUserThenReturnSuccess() {
         when(this.userService.findById(anyLong())).thenReturn(userResponse);
         when(modelMapper.map(any(), any())).thenReturn(userResponse);
 
@@ -104,42 +102,44 @@ class UserControllerTest {
     }
 
     @Test
-    void create() {
+    @DisplayName("When the user is created successfully")
+    void createUserThenReturnSuccess() {
+        when(this.userService.create(any())).thenReturn(userResponse);
+
+        ResponseEntity<UserResponse> response = userController.create(userRequest);
+
+        assertEquals(ResponseEntity.class, response.getClass());
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertNotNull(response.getBody());
     }
 
     @Test
-    void update() {
+    @DisplayName("When the user is updated successfully")
+    void updateUserThenReturnSuccess() {
+        when(this.userService.update(USER_ID, userRequest)).thenReturn(userResponse);
+        when(modelMapper.map(any(), any())).thenReturn(userResponse);
+
+        ResponseEntity<UserResponse> response = userController.update(USER_ID, userRequest);
+
+        assertNotNull(response);
+        assertNotNull(response.getBody());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(ResponseEntity.class, response.getClass());
+        assertEquals(UserResponse.class, response.getBody().getClass());
+
+        assertEquals(USER_ID, response.getBody().getId());
     }
 
     @Test
-    void delete() {
-    }
+    void deleteThenReturnSuccess() {
+        doNothing().when(this.userService).delete(anyLong());
 
-    private void startUser() {
-        // Address instantiation
-        Address address = new Address(STREET, CITY, STATE, ZIP);
-        // Phone instantiation
-        Phone phone = new Phone(PHONE_NUMBER_PHONE, PHONE_TYPE_PHONE);
-        // ContactInfo instantiation
-        ContactInfo contactInfo = new ContactInfo(address, phone);
-        // Permission instantiation
-        Permission permission = new Permission(PERMISSION_ID, DESCRIPTION);
+        ResponseEntity<Void> response = userController.delete(USER_ID);
 
-        // User instantiation
-        user = new User();
-        user.setId(USER_ID);
-        user.setFullname(FULL_NAME);
-        user.setUsername(USERNAME);
-        user.setPassword(PASSWORD);
-        user.setAccountNonExpired(ACCOUNT_NOT_EXPIRED);
-        user.setAccountNonLocked(ACCOUNT_NON_LOCKED);
-        user.setCredentialsNonExpired(CREDENTIALS_NON_EXPIRED);
-        user.setEnabled(ENABLED);
-        user.getAddresses().add(address);
-        user.setContactInfo(contactInfo);
-        user.setPermissions(Set.of(permission));
-
-        optionalUser = Optional.of(user);
+        assertNotNull(response);
+        assertEquals(ResponseEntity.class, response.getClass());
+        verify(userService, times(1)).delete(anyLong());
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
     }
 
     private void startUserResponse() {

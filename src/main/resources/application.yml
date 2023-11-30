@@ -9,7 +9,7 @@ security:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/contact
+    url: jdbc:postgresql://contact.cuuyz9uesp57.us-east-2.rds.amazonaws.com:5433/contact
     username: postgres
     password: postgres
   flyway:
